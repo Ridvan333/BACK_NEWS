@@ -41,7 +41,8 @@ module.exports.newsController = {
   },
   getAllNews: async (req, res) => {
     try {
-      const get = await News.find().populate("category comment");
+      const get = await News.find().populate("category");
+      
       res.json(`${get} : Новости выведены`);
     } catch (err) {
       console.log(`${err} Ошибка при выводе новостей`);

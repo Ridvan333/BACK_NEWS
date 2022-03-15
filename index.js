@@ -9,17 +9,20 @@ const port = 3000;
 app.use(express.json());
 app.use(cors());
 
+app.use(require('./routes'));
+
 
 async function connected() {
     try {
-        await mongoose.connected('mongodb+srv://mgls:12345@cluster0.od801.mongodb.net/test?authSource=admin&replicaSet=atlas-oy5gfc-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true');
+        await mongoose.connect("mongodb+srv://shamil:1234@cluster0.ch1gg.mongodb.net/NewsCommand");
 
         console.log('Подключение к MongoDB прошло успешно');
         app.listen(port, () => {
             console.log('OK!');
         })
     } catch (e) {
-        console.log('Не удалось подключиться');
+        console.log(e);
     }
 }
+
 connected();
