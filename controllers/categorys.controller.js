@@ -2,21 +2,21 @@ const Category = require("../models/Category.model");
 
 module.exports.categoryController = {
   addCategory: async (req, res) => {
-      try{
-        await Category.create({
-          name: req.body.name,
-        });
-        res.json("Категория добавлена");
+    try {
+      await Category.create({
+        name: req.body.name,
+      });
+      res.json("Категория добавлена");
     } catch (err) {
-        console.log(`${err} Ошибка при выводе новости`);
+      res.json(err);
     }
   },
   getCategory: async (req, res) => {
-      try {
-        const find = await Category.find();
-        res.json(`${find} : Категории выведены`);
+    try {
+      const find = await Category.find();
+      res.json(`${find} : Категории выведены`);
     } catch (err) {
-        console.log(`${err} Ошибка при выводе новости`);
+      console.log(`${err} Ошибка при выводе новости`);
     }
   },
 };

@@ -3,8 +3,8 @@ const { userController } = require("../controllers/users.controller");
 
 const router = Router();
 
-router.post("add/user", userController.addUser);
+router.post("/", userController.addUser);
 
 
-
+module.exports = router;
 
